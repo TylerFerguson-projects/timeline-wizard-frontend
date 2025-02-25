@@ -1,27 +1,37 @@
-"use client";
-import React, { useState } from "react";
-import { Box } from "@mui/material";
-import Header from "./layout/header/Header";
-import Nav from "./layout/nav/Nav";
-import Footer from "./layout/footer/Footer";
+'use client';
+
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import { MuiThemeProvider } from './components/ThemeProvider';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const handleNavClose = () => {
+    setMobileNavOpen(false);
+  };
 
   return (
     <html lang="en">
       <body>
-        <Box className="min-h-screen flex flex-col">
-          <Header title="Timeline Wizard"/>
-          <Box className="flex flex-grow">
-            <Nav open={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
-            <Box className="flex-grow flex flex-col">
-              {children}
-              <Footer />
+        <MuiThemeProvider>
+          <Box className="min-h-screen flex flex-col">
+            <Header 
+              title="Timeline Wizard" 
+              onMenuClick={() => setMobileNavOpen(true)}
+            />
+            <Box className="flex flex-grow">
+              <Nav open={mobileNavOpen} onClose={handleNavClose} />
+              <Box className="flex-grow flex flex-col">
+                {children}
+                <Footer />
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </MuiThemeProvider>
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 interface HeaderProps {
   title?: string;
+  onMenuClick?:() => void;
  
 }
 

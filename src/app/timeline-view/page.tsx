@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import MainContainer from './../layout/main-container/MainContainer';
+import MainContainer from '../components/MainContainer';
 
 const TimelineViewPage = () => (
   <MainContainer title="Contact">

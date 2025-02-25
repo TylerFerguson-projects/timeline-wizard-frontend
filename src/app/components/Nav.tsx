@@ -21,7 +21,7 @@ interface NavItem {
 
 interface NavProps {
   open?: boolean;
-  onClose: (event: object, reason: "backdropClick" | "escapeKeyDown") => void;  
+  onClose: () => void;
 }
 
 const navigation: NavItem[] = [

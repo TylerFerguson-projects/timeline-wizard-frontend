@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import MainContainer from './layout/main-container/MainContainer';
+import MainContainer from './components/MainContainer';
 import TimelineGeneratorPage from './timeline-generator/page';
 
 const App = () => (

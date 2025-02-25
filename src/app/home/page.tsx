@@ -1,5 +1,5 @@
 import React from 'react';
-import MainContainer from '../layout/main-container/MainContainer';
+import MainContainer from '../components/MainContainer';
 
 const HomePage = () => (
   <MainContainer title="Home">
