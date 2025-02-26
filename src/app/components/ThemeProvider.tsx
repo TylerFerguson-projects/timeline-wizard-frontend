@@ -7,12 +7,14 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#050505',  // This sets the body's background via CssBaseline
-      paper: '#101010',    // This is used in Paper components
+      default: '#161d26',  
+      paper: '#101010', 
+      
     },
     text: {
       primary: '#ededed',
-    },
+    }
+ 
   },
 });
 

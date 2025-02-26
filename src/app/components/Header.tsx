@@ -1,43 +1,39 @@
 // layout/Header.tsx
 'use client';
 import React from 'react';
-
-import { AppBar, Toolbar, Typography, IconButton, Container, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 
 interface HeaderProps {
   title?: string;
-  onMenuClick?:() => void;
-  onMobileNavOpen:() => void;
- 
+  onMenuClick?: () => void;
+  onMobileNavOpen: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ 
-  title = "AWS CDK Stack Deployment"
-
+  title = "AWS CDK Stack Deployment",
+  onMobileNavOpen
 }) => {
   return (
-    <AppBar position="static" className="bg-blue-600">
-      <Container maxWidth="xl">
-        <Toolbar className="justify-between">
-          <Box className="flex items-center">
-         
-            <Typography
-              variant="h6"
-              component="div"
-              className="font-bold tracking-tight"
-            >
-              {title}
-            </Typography>
-          </Box>
-          
-    
-          <IconButton color="inherit" aria-label="search">
-            <SearchIcon />
-          </IconButton>
-        </Toolbar>
-      </Container>
+    <AppBar position="static" sx={{ bgcolor: '#161d26' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={onMobileNavOpen}
+          sx={{ position: 'absolute', left: 16, display: { xs: 'block', md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ fontWeight: 'bold' }}
+        >
+          {title}
+        </Typography>
+      </Toolbar>
     </AppBar>
   );
 };

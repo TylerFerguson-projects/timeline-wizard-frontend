@@ -195,12 +195,13 @@ const RegistrationFormPage = () => {
             {/* Submit Button */}
             <Grid size={{xs:12 }} display="flex" justifyContent="center" padding={4}>
               <Button
-                variant="contained"
-                onClick={handleSubmit}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
-              >
-                Submit
-              </Button>
+              variant="contained"
+              onClick={handleSubmit}
+              size="large"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded"
+            >
+              Submit
+            </Button>
             </Grid>
           </Grid>
         </Box>
