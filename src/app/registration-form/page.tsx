@@ -20,15 +20,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import Grid from '@mui/material/Grid2';
 import { Dayjs } from "dayjs";
 
-interface FormData {
-  client: string;
-  venue: string;
-  date: Dayjs | null;
-  eventType: string;
-  phone: string;
-  ceremonyTime: string;
-  dances: { waltz: boolean; tango: boolean; salsa: boolean };
-}
+ 
 
 
 interface FormData {
@@ -37,18 +29,16 @@ interface FormData {
   date: Dayjs | null;
   eventType: string;
   phone: string;
-  ceremonyTime: string;
   dances: { waltz: boolean; tango: boolean; salsa: boolean };
 }
 
-const TimelineGeneratorPage = () => {
+const RegistrationFormPage = () => {
   const [formData, setFormData] = useState<FormData>({
     client: "",
     venue: "",
     date: null,
     eventType: "",
     phone: "",
-    ceremonyTime: "",
     dances: { waltz: false, tango: false, salsa: false },
   });
 
@@ -73,11 +63,10 @@ const TimelineGeneratorPage = () => {
   };
 
   return (
+
     <Container maxWidth="lg" className="py-6">
-       <Typography variant="h4" className="mb-6 font-medium text-gray-100" display="flex" justifyContent="center">
-        Timeline Generator
-      </Typography>
-      <Paper elevation={4} className="p-8 rounded-lg bg-gray-800 text-gray-100 m-4">
+ 
+     
      
         <Box component="form">
           <Grid container spacing={4}>
@@ -90,7 +79,7 @@ const TimelineGeneratorPage = () => {
                 value={formData.client}
                 onChange={handleChange}
                 variant="standard"
-                className="bg-gray-700 text-gray-100"
+                className="text-gray-100"
               />
             </Grid>
             {/* Venue Location */}
@@ -136,7 +125,7 @@ const TimelineGeneratorPage = () => {
                   label="Event Type"
                   className="text-gray-100"
                 >
-                  <MenuItem value="wedding">Wedding</MenuItem>
+                  <MenuItem value="convention">Convention</MenuItem>
                   <MenuItem value="corporate">Corporate</MenuItem>
                   <MenuItem value="party">Party</MenuItem>
                 </Select>
@@ -154,19 +143,8 @@ const TimelineGeneratorPage = () => {
                 className="bg-gray-700 text-gray-100"
               />
             </Grid>
-            {/* Ceremony Time */}
-            <Grid size={{xs:12 }} display="flex" justifyContent="center">
-              <TextField
-                sx={{ width: '75%' }}
-                label="Ceremony Time"
-                name="ceremonyTime"
-                type="time"
-                value={formData.ceremonyTime}
-                onChange={handleChange}
-                variant="standard"
-                className="bg-gray-700 text-gray-100"
-              />
-            </Grid>
+     
+           
             {/* Dance Selection */}
             <Grid size={{xs:12 }} display="flex" justifyContent="center">
               <Box>
@@ -226,9 +204,10 @@ const TimelineGeneratorPage = () => {
             </Grid>
           </Grid>
         </Box>
-      </Paper>
+     
     </Container>
+
   );
 };
 
-export default TimelineGeneratorPage;
+export default RegistrationFormPage;

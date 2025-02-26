@@ -1,45 +1,50 @@
-// layout/MainContainer.tsx
-'use client';
-import React, { ReactNode } from 'react';
-import { Container, Paper, Box, Typography, ContainerProps } from '@mui/material';
+"use client";
+import React, { ReactNode } from "react";
+import { Container, Paper, Box, Typography, ContainerProps, SxProps, Theme } from "@mui/material";
 
 interface MainContainerProps {
   children: ReactNode;
   title?: string;
-  maxWidth?: ContainerProps['maxWidth'];
+  maxWidth?: ContainerProps["maxWidth"];
   elevation?: number;
   className?: string;
+  sx?: SxProps<Theme>;
 }
 
-const MainContainer: React.FC<MainContainerProps> = ({ 
-  children, 
+const MainContainer: React.FC<MainContainerProps> = ({
+  children,
   title,
-  maxWidth = "lg", 
-  elevation = 0, 
-  className = "" 
+  maxWidth = "lg",
+  elevation = 0,
+  className = "",
+  sx = {},
 }) => {
   return (
     <Container 
       maxWidth={maxWidth} 
-      className={`py-6  ${className}`}
+      className={`py-6 ${className}`} 
+      sx={{ height: "80%", ...sx }}
     >
       {title && (
-        <Typography 
-          variant="h4" 
-          component="h1" 
-          className="mb-6 font-medium text-gray-800"
+        <Typography
+          variant="h4"
+          component="h1"
+          sx={{ fontWeight: "medium", color: "text.primary", mb: 2 }}
         >
           {title}
         </Typography>
       )}
-      
-      <Paper 
-        elevation={elevation} 
-        className="p-6 bg-white rounded-lg"
+      <Paper
+        elevation={elevation}
+        sx={{ 
+          p: 6, 
+          bgcolor: "background.paper", 
+          borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column" 
+        }}
       >
-        <Box className="min-h-[200px]">
-          {children}
-        </Box>
+        <Box sx={{ flexGrow: 1, minHeight: "200px" }}>{children}</Box>
       </Paper>
     </Container>
   );

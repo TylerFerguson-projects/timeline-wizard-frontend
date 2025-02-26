@@ -25,37 +25,35 @@ interface NavProps {
 }
 
 const navigation: NavItem[] = [
- 
-  { name: "Timeline Generator", href: "/timeline-generator", icon: <InfoIcon /> },
-  { name: "Timeline View", href: "/timeline-view", icon: <DesignServicesIcon /> },
+  { name: "Timeline Generator", href: "/timeline-generator", icon: <DesignServicesIcon /> },
+  { name: "Timeline View", href: "/timeline-view", icon: <InfoIcon /> },
 ];
 
 const Nav = ({ open = false, onClose }: NavProps) => {
   return (
     <>
-      <Drawer anchor="left" open={open} onClose={onClose} className="md:hidden">
-        <Box className="w-64">
-          <List>
-            {navigation.map((item) => (
-              <ListItem key={item.name} disablePadding>
-                <ListItemButton component={Link} href={item.href}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.name} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-      <Box className="hidden md:block w-64 border-r border-gray-200 h-full">
-        <List className="pt-2">
+      <Drawer variant="temporary" open={open} onClose={onClose} ModalProps={{ keepMounted: true }}>
+        <List>
           {navigation.map((item) => (
             <ListItem key={item.name} disablePadding>
-              <ListItemButton
-                component={Link}
-                href={item.href}
-                className="hover:bg-blue-50"
-              >
+              <ListItemButton component={Link} href={item.href}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      <Box
+        sx={{
+          display: { xs: "none", md: "block" },
+          flex: "0 0 240px",
+        }}
+      >
+        <List>
+          {navigation.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton component={Link} href={item.href}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.name} />
               </ListItemButton>

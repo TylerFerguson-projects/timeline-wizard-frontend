@@ -9,11 +9,12 @@ import SearchIcon from '@mui/icons-material/Search';
 interface HeaderProps {
   title?: string;
   onMenuClick?:() => void;
+  onMobileNavOpen:() => void;
  
 }
 
 const Header: React.FC<HeaderProps> = ({ 
-  title = "Timeline Wizard"
+  title = "AWS CDK Stack Deployment"
 
 }) => {
   return (
@@ -21,15 +22,7 @@ const Header: React.FC<HeaderProps> = ({
       <Container maxWidth="xl">
         <Toolbar className="justify-between">
           <Box className="flex items-center">
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              className="mr-2 md:hidden"
-            >
-              <MenuIcon />
-            </IconButton>
+         
             <Typography
               variant="h6"
               component="div"

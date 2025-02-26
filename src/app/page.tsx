@@ -1,12 +1,11 @@
 'use client';
 import React from 'react';
-import MainContainer from './components/MainContainer';
-import TimelineGeneratorPage from './timeline-generator/page';
+import RegistratonFormPage from './registration-form/page';
 
-const App = () => (
-  <MainContainer title="Home">
-    <TimelineGeneratorPage/>
-  </MainContainer>
+const Page = () => (
+  <>
+    <RegistratonFormPage />
+  </>
 );
 
-export default App;
+export default Page;
